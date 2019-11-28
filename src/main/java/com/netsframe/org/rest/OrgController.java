@@ -1,13 +1,11 @@
 package com.netsframe.org.rest;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController()
 public class OrgController {
-	@RequestMapping("/org/query/{id}")
-	public String query(@PathVariable("id") String id) {
-		return "中国深圳";
-	}
+    @RequestMapping(value = "/org/query", method = RequestMethod.GET)
+    public String query(@RequestParam("id") String id) {
+        return "中国深圳-before-" + id;
+    }
 }
